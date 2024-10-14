@@ -1,0 +1,7 @@
+---
+- name: Add httpd Firewall Rule
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
+...      

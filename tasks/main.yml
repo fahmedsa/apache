@@ -1,0 +1,7 @@
+---
+# tasks file for apache
+- import_tasks: install.yml
+- import_tasks: config.yml
+- import_tasks: service.yml
+- import_tasks: firewall-rule.yml
+- import_tasks: firewall-reload.yml

@@ -1,0 +1,33 @@
+---
+- name: Installing Apache and configure it by Jinja Template
+  hosts: dev
+  become: true
+  tasks:
+    - name: Installing Apache
+      dnf:
+        name: httpd
+        state: latest
+    - name: Start Apache
+      service:
+        name: httpd
+        state: started
+        enabled: true
+    - name: Copy Jinja template
+      template:
+        src: /home/faraz/playbooks/index.j2
+        dest: /var/www/html/index.html
+    - service:
+        name: httpd
+        state: restarted
+    - name: Add Firewall Rules
+      firewalld:
+        permanent: true
+        service: http
+        state: enabled
+    - name: Reload Firewalld Service
+      service:
+        name: firewalld
+        state: reloaded
+...          
+
+

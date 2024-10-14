@@ -1,0 +1,6 @@
+---
+- name: Reload Firewall to Open httpd service for outside world
+  service:
+    name: firewalld
+    state: reloaded
+...      

@@ -1,0 +1,6 @@
+---
+- name: Install Apache Latest Version
+  dnf:
+    name: httpd
+    state: installed
+...
